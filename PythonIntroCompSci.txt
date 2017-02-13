@@ -1,0 +1,1951 @@
+#####################################################################################
+#       			CHAPTER 1   		 #
+#####################################################################################
+
+#Optional Lesson 1 Problem Set
+###############################################
+#       Exercise by Websten from forums       #
+###############################################
+# To minimize errors when writing long texts with
+# complicated expressions you could replace 
+# the tricky parts with a marker. 
+# Write a program that takes a line of text and 
+# finds the first occurrence of a certain marker 
+# and replaces it with a replacement text. 
+# The resulting line of text should be stored in a variable. 
+# All input data will be given as variables.
+#
+# Replace the first occurrence of marker in the line below.
+# There will be at least one occurrence of the marker in the
+# line of text. Put the answer in the variable 'replaced'.
+# Hint: You can find out the length of a string by command
+# len(string). We might test your code with different markers!
+
+# Example 1
+#marker = "AFK"
+#replacement = "away from keyboard"
+#line = "I will now go to sleep and be AFK until lunch time tomorrow."
+
+# Example 2 # uncomment this to test with different input
+marker = "EY"
+replacement = "Eyjafjallajokull"
+line = "The eruption of the volcano EY in 2010 disrupted air travel in Europe for 6 days."
+
+###
+# YOUR CODE BELOW. DO NOT DELETE THIS LINE
+###
+x = line.find(marker) #position where marker occurs
+length = len(marker) #length of marker
+replaced = line[:x] + replacement + line[x+length:]
+
+print replaced
+# Example 1 output should be:
+#>>> I will now go to sleep and be away from keyboard until lunch time tomorrow.
+# Example 2 output should be:
+#>>> The eruption of the volcano Eyjafjallajokull in 2010 disrupted air travel in Europe for 6 days.
+
+############################################################################
+##Another Grammar
+#Incorrect answers:
+# One that included words not from list
+# One that included word with punctuation different from that in list
+
+
+############################################################################
+#Another Grammar
+# number of sequences that can be derived are infinitely many
+
+
+############################################################################
+#Pythonic Arithmetic
+#Which will print correct results?
+print 10/4.0 #True
+print  10 *1.0/4 #True
+print 10/4 #False
+print 10/5 #True
+print 10.0/5 #True
+print 10/50 #False
+
+
+###############################################
+#       Exercise by Websten from forums       #
+###############################################
+# A palindrome is a word or a phrase that reads 
+# the same backwards as forwards. Make a program 
+# that checks if a word is a palindrome. 
+# If the word is a palindrome, print 0 to the terminal,
+# -1 otherwise. 
+# The word contains lowercase letters a-z and 
+# will be at least one character long.
+#
+### HINT! ###
+# You can read a string backwards with the following syntax:
+# string[::-1] - where the "-1" means one step back.
+# This exercise can be solved with only unit 1 knowledge
+# (no loops or conditions)
+
+#word = "madam"
+# test case 2
+word = "madman" # uncomment this to test
+
+###
+# YOUR CODE HERE. DO NOT DELETE THIS LINE OR ADD A word DEFINITION BELOW IT.
+###
+
+is_palindrome = word.find(word[::-1])
+
+# TESTING
+print is_palindrome
+# >>> 0  # outcome if word == "madam"
+# >>> -1 # outcome if word == "madman"
+
+
+
+#####################################################################################
+#       			CHAPTER 2   		 #
+#####################################################################################
+
+###############################################
+#       Procedure: squares       #
+###############################################
+
+# Define a procedure, square, that takes one number 
+# as its input, and returns the square of that 
+# number (result of multiplying
+# the number by itself).
+# To help you out, the code for sum(a,b) is below.
+
+def sum(a,b):
+    c = a + b
+    return c
+
+# To test your procedure, uncomment the print 
+# statement below, by removing the hash mark (#) 
+# at the beginning of the line.
+
+# Do not remove the # from in front of the line 
+# with the arrows (>>>). Lines which begin like 
+# this (#>>>) are included to show the results
+# you should see when run your procedure.
+
+def square(a):
+    return a*a
+    
+print square(5)
+#>>> 25
+
+#Test cases checked in code assessment are 0, 89 and -5
+
+
+###############################################
+#       Procedure: Sum of Three Inputs       #
+###############################################
+# Define a procedure, sum3, that takes three
+# inputs, and returns the sum of the three
+# input numbers.
+# To help you out, the code for sum(a,b) is below.
+
+def sum(a,b):
+    return a + b
+
+
+def sum3(a,b,c):
+    return a+b+c
+
+
+print sum3(1,2,3)
+#>>> 6
+
+#print sum3(93,53,70)
+#>>> 216
+
+#Test cases tried by code assessor
+#SUCCESS: Test case input: 0, 0, 0
+#SUCCESS: Test case input: 4, 5, 6  
+#SUCCESS: Test case input: -1, 2, -1 
+
+
+###############################################
+#       Procedure: abbaize       #
+###############################################
+#Test cases:
+#SUCCESS: Test case input: 'b', 'c'  
+#SUCCESS: Test case input: 'True', '='  
+#SUCCESS: Test case input: '', ''  
+
+
+# Define a procedure, abbaize, that takes
+# two strings as its inputs, and returns
+# a string that is the first input,
+# followed by two repetitions of the second input,
+# followed by the first input.
+
+def abbaize(a,b):
+    return a+b+b+a
+
+#print abbaize('a','b')
+#>>> 'abba'
+
+print abbaize('dog','cat')
+#>>> 'dogcatcatdog'
+
+
+###############################################
+#       Procedure: abbaize       #
+###############################################
+#Test cases:
+#SUCCESS: Test case input: '00', '0'
+#SUCCESS: Test case input: 'she sells seashells by the seashore', 'she'
+#SUCCESS: Test case input: 'abbaabba', 'abba'  
+
+# Define a procedure, find_second, that takes
+# two strings as its inputs: a search string
+# and a target string. It should return a
+# number that is the position of the second
+# occurrence of the target string in the
+# search string.
+
+def find_second(target, searchstring):
+    a= target.find(searchstring)
+    return target.find(searchstring, a+1)
+
+#danton = "De l'audace, encore de l'audace, toujours de l'audace"
+#print find_second(danton, 'audace')
+#>>> 25
+
+twister = "she sells seashells by the seashore"
+print find_second(twister,'she')
+#>>> 13
+
+
+
+###############################################
+#       Procedure: Bigger       #
+###############################################
+#Test cases:
+#SUCCESS: Test case input: 3, 8
+#SUCCESS: Test case input: 4,3 
+#SUCCESS: Test case input:3, 3
+# Define a procedure, bigger, that takes in
+# two numbers as inputs, and returns the
+# greater of the two inputs.
+
+
+def bigger(a,b):
+    x=b
+    if a>=b :
+        x=a
+    
+    return x
+        
+#print bigger(2,7)
+#>>> 7
+
+#print bigger(3,2)
+#>>> 3
+
+print bigger(3,3)
+#>>> 3
+
+
+###############################################
+#       Procedure: is_Friend       #
+###############################################
+
+# Define a procedure, is_friend, that
+# takes a string as its input, and
+# returns a Boolean indicating if
+# the input string is the name of
+# a friend. Assume I am friends with
+# everyone whose name starts with D
+# and no one else. You do not need to
+# check for the lower case 'd'
+
+def is_friend(x):
+    if x[0] == 'D' or x[0]== 'd':
+        return True
+    else:
+        return False
+        
+#print is_friend('Diane')
+#>>> True
+
+print is_friend('Fred')
+#>>> False
+
+
+###############################################
+#       Procedure: is_Friend_2      #
+###############################################
+
+# Define a procedure, is_friend, that takes
+# a string as its input, and returns a
+# Boolean indicating if the input string
+# is the name of a friend. Assume
+# I am friends with everyone whose name
+# starts with either 'D' or 'N', but no one
+# else. You do not need to check for
+# lower case 'd' or 'n'
+
+
+def is_friend(x):
+    if x[0] == 'D' or x[0]== 'N':
+        return True
+    else:
+        return False
+
+
+#print is_friend('Diane')
+#>>> True
+
+#print is_friend('Ned')
+#>>> True
+
+print is_friend('Moe')
+#>>> False
+
+
+#Test Cases:
+SUCCESS: Test case input: 'Dave' 
+SUCCESS: Test case input: 'Nate'
+SUCCESS: Test case input: 'Mark' 
+
+
+###############################################
+#       Procedure: Biggest of Three Numbers      #
+###############################################
+# Define a procedure, biggest, that takes three
+# numbers as inputs and returns the largest of
+# those three numbers.
+
+def biggest(a, b, c):
+    if (a>=b and a>=c):
+        return a
+    if (b>=a and b>=c):
+         return b
+    if (c>=a and c>=b):
+        return c
+
+
+#print biggest(3, 6, 9)
+#>>> 9
+
+#print biggest(6, 9, 3)
+#>>> 9
+
+#print biggest(9, 3, 6)
+#>>> 9
+
+#print biggest(3, 3, 9)
+#>>> 9
+
+print biggest(9, 3, 9)
+#>>> 9
+
+#Test Cases:
+SUCCESS: Test case input: 1,2,3  
+SUCCESS: Test case input: 3,1,2  
+SUCCESS: Test case input: 2,3,1  
+SUCCESS: Test case input: 1,3,2  
+SUCCESS: Test case input: 3,2,1  
+SUCCESS: Test case input: 2,1,3  
+SUCCESS: Test case input: 2,2,1  
+
+
+###############################################
+#       While: Print Numbers       #
+###############################################
+# Define a procedure, print_numbers, that takes
+# as input a positive whole number, and prints 
+# out all the whole numbers from 1 to the input
+# number.
+
+# Make sure your procedure prints "upwards", so
+# from 1 up to the input number.
+
+def print_numbers(x):
+     i=1
+     while(i<=x):
+         print i
+         i=i+1
+         
+print_numbers(3)
+#>>> 1
+#>>> 2
+#>>> 3
+
+
+
+###############################################
+#       While: Factorial                      #
+###############################################
+# Define a procedure, factorial, that
+# takes one number as its input
+# and returns the factorial of
+# that number.
+
+def factorial(n):
+ facto = 1
+ while (n > 0):
+     facto= facto *n
+     n = n - 1
+ return facto     
+
+
+#print factorial(4)
+#>>> 24
+#print factorial(5)
+#>>> 120
+print factorial(6)
+#>>> 720
+
+#Test cases:
+#SUCCESS: Test case input: 0
+#SUCCESS: Test case input: 1
+#SUCCESS: Test case input: 4
+#SUCCESS: Test case input: 5
+#SUCCESS: Test case input: 10
+
+
+
+###############################################
+#       Modify Links       #
+###############################################
+# Modify the get_next_target procedure so that
+# if there is a link it behaves as before, but
+# if there is no link tag in the input string,
+# it returns None, 0.
+
+# Note that None is not a string and so should
+# not be enclosed in quotes.
+
+# Also note that your answer will appear in
+# parentheses if you print it.
+
+def get_next_target(page):
+    start_link = page.find('<a href=')
+
+    #Insert your code below here
+    if (start_link == -1):
+        end_quote = 0
+        url = None
+    else:
+        start_quote = page.find('"', start_link)
+        end_quote = page.find('"', start_quote + 1)
+        url = page[start_quote + 1:end_quote]
+        
+    return url, end_quote
+                 
+#Statements for test check by Self:
+#url, endpos = get_next_target('This is a <a href="www.nirupamaprv.org"> link!')
+#print url
+#print endpos
+
+#Test cases by Code Evaluator:
+#Test case input: 'hi this is a "string" with no link'
+#Test case input: 'this is a <a href="http://udacity.com">link!</a>'
+
+
+###############################################
+#       Quiz: Udacify     #
+###############################################
+# Define a procedure, udacify, that takes as
+# input a string, and returns a string that
+# is an uppercase 'U' followed by the input string.
+# for example, when you enter
+
+# print udacify('dacians')
+
+# the output should be the string 'Udacians'
+
+def udacify(str):
+    return 'U' + str
+
+# Remove the hash, #, from infront of print to test your code.
+
+#print udacify('dacians')
+#>>> Udacians
+
+#print udacify('turn')
+#>>> Uturn
+
+#print udacify('boat')
+#>>> Uboat
+
+
+###############################################
+#       Quiz: Median     #
+###############################################
+# Define a procedure, median, that takes three
+# numbers as its inputs, and returns the median
+# of the three numbers.
+
+# Make sure your procedure has a return statement.
+
+def bigger(a,b):
+    if a > b:
+        return a
+    else:
+        return b
+
+def biggest(a,b,c):
+    return bigger(a,bigger(b,c))
+
+def median(a, b, c):
+   x= biggest(a, b, c)
+   if (a==x):
+    return bigger(b,c)
+   else:
+       if (b==x):
+           return bigger(a,c)
+       else:
+           return bigger(a,b)
+    
+print(median(1,3,2))
+#>>> 2
+
+print(median(9,3,6))
+#>>> 6
+
+print(median(7,8,7))
+#>>> 7
+
+
+
+
+###############################################
+#       Quiz: Wrong  Version    #
+###############################################
+# Define a procedure, median, that takes three
+# numbers as its inputs, and returns the median
+# of the three numbers.
+
+# Make sure your procedure has a return statement.
+
+def bigger(a,b):
+    if a > b:
+        return a
+    else:
+        return b
+
+def biggest(a,b,c):
+    return bigger(a,bigger(b,c))
+
+def median(a, b, c):
+    x = bigger(a,b)
+    if c >= x:
+        return x
+    else:
+        temp1 = a * (-1)
+        temp2 = c * (-1)
+        return ( (-1)* bigger(temp1, temp2) )
+    
+    
+print(median(1,2,3))
+#>>> 2
+
+print(median(9,3,6))
+#>>> 6
+
+print(median(7,8,7))
+#>>> 7
+
+#Code Evaluator Response:
+# Incorrect. Getting close!  Your submission passed 14 out of 18 test cases. It failed the test for inputs 1, 3, 2.  The result should be 2.
+
+###############################################
+#       Quiz: Blastoff    #
+###############################################
+#Blastoff
+# Define a procedure, countdown, that takes a
+# positive whole number as its input, and prints
+# out a countdown from that number to 1,
+# followed by Blastoff!
+# The procedure should not return anything.
+# For this question, you just need to call 
+# the procedure using the line
+# countdown(3)
+# instead of print countdown(3).
+
+def countdown(n):
+    while(n>0):
+        print n
+        n=n-1
+    print 'Blastoff!'
+
+countdown(3)
+#>>> 3
+#>>> 2
+#>>> 1
+#>>> Blastoff!
+
+###############################################
+#       Quiz: Find Last   #
+###############################################
+
+# Define a procedure, find_last, that takes as input
+# two strings, a search string and a target string,
+# and returns the last position in the search string
+# where the target string appears, or -1 if there
+# are no occurrences.
+#
+# Example: find_last('aaaa', 'a') returns 3
+
+# Make sure your procedure has a return statement.
+
+
+def find_last(s,t):
+	last_pos  = -1
+	while True:
+		pos = s.find(t, last_pos + 1)
+		if pos == -1:
+			return last_pos
+		last_pos = pos
+
+
+print find_last('aaaa', 'a')
+#>>> 3
+
+print find_last('aaaaa', 'aa')
+#>>> 3
+
+print find_last('aaaa', 'b')
+#>>> -1
+
+print find_last("111111111", "1")
+#>>> 8
+
+print find_last("222222222", "")
+#>>> 9
+
+print find_last("", "3")
+#>>> -1
+
+print find_last("", "")
+#>>> 0
+
+
+#####################################################################################
+#       CHAPTER 3  #
+#####################################################################################
+
+###############################################
+#       Quiz: Find Last   #
+###############################################
+###############
+#create list of stooges
+stooges = [‘Moe’, ‘Larry’ , ‘Curly’]
+print stooges
+#>>> [‘Moe’, ‘Larry’ , ‘Curly’]
+
+
+
+###############################################
+#       Lists: Day In Month   #
+###############################################
+# Given the variable,
+
+days_in_month = [31,28,31,30,31,30,31,31,30,31,30,31]
+
+# define a procedure, how_many_days,
+# that takes as input a number
+# representing a month, and returns
+# the number of days in that month.
+
+def how_many_days(month_number):
+    return days_in_month[month_number-1]
+
+print how_many_days(1)
+#>>> 31
+
+print how_many_days(9)
+#>>> 30
+##########Test Cases
+#SUCCESS: Test case input: 2
+#SUCCESS: Test case input: 10
+
+
+###############################################
+#       Nested Lists: Countries   #
+###############################################
+# Given the variable countries defined as:
+#             Name    Capital  Populations (millions)
+countries = [['China','Beijing',1350],
+             ['India','Delhi',1210],
+             ['Romania','Bucharest',21],
+             ['United States','Washington',307]]
+
+# Write code to print out the capital of India
+# by accessing the list
+
+print countries[1][1]
+#>>>Delhi
+
+###############################################
+#       Nested Lists: Countries 2  #
+###############################################
+# Given the variable countries defined as:
+#             Name      Capital  Populations (millions)
+countries = [['China','Beijing',1350],
+             ['India','Delhi',1210],
+             ['Romania','Bucharest',21],
+             ['United States','Washington',307]]
+
+# What multiple of Romania's population is the population
+# of China? Calculate this by accessing the list and
+# dividing the population of China (1350)
+# by the population of Romania (21).
+# Please print your result.
+
+Romania_pop= countries[2][2]
+China_pop = countries[0][2]
+print China_pop / Romania_pop
+
+
+###############################################
+#       Nested Lists: Stooges 2  #
+###############################################
+# We defined:
+
+stooges = ['Moe','Larry','Curly']
+
+# but in some Stooges films, Curly was
+# replaced by Shemp.
+
+# Write one line of code that changes
+# the value of stooges to be:
+
+#[‘Moe','Larry','Shemp']
+
+# but does not create a new List
+# object.
+
+stooges[2]= 'Shemp'
+print stooges
+#>>> ['Moe','Larry','Shemp']
+
+
+
+###############################################
+#       Nested Lists: Replace Spy  #
+###############################################
+# Define a procedure, replace_spy,
+# that takes as its input a list of
+# three numbers, and modifies the
+# value of the third element in the
+# input list to be one more than its
+# previous value.
+
+spy = [0,0,7]
+
+def replace_spy(list_of_three):
+    list_of_three[2]= list_of_three[2]+1
+
+
+# In the test below, the first line calls your 
+# procedure which will change spy, and the 
+# second checks you have changed it.
+# Uncomment the top two lines below.
+
+replace_spy(spy)
+print spy
+#>>> [0,0,8]
+
+#Test Cases:
+#Test case input: [0,0,8]
+#Test case input: [1,2,2]
+
+
+
+#Sum of list numbers 
+def sum_list(p):
+	result = 0
+	for e in p:
+		result = result + e
+	return result
+
+###############################################
+#       Lists: Sum of Elements  #
+###############################################
+# Define a procedure, sum_list,
+# that takes as its input a
+# list of numbers, and returns
+# the sum of all the elements in
+# the input list.
+def sum_list(listOfNum):
+	result = 0
+	for e in listOfNum:
+		result = result + e
+	return result
+
+print sum_list([1, 7, 4])
+#>>> 12
+
+print sum_list([9, 4, 10])
+#>>> 23
+
+print sum_list([44, 14, 76])
+#>>> 134
+######Test Cases:
+#Test case input: [1,1,8]
+#Test case input: [12,16,24]
+#Test case input: [12,16,24]
+Test case input: []
+
+#################################################################
+#       Lists: Count Elements in List Beginning with ‘U’  #
+#################################################################
+# Define a procedure, measure_udacity,
+# that takes as its input a list of strings,
+# and returns a number that is a count
+# of the number of elements in the input
+# list that start with the uppercase 
+# letter 'U'.
+
+def measure_udacity(listOfStr):
+    count = 0 
+    for e in listOfStr:
+        if e[0] == 'U':
+            count = count + 1
+    return count
+
+print measure_udacity(['Dave','Sebastian','Katy'])
+#>>> 0
+
+print measure_udacity(['Umika','Umberto'])
+#>>> 2
+
+print measure_udacity(['Dave','Una','Katy'])
+#>>> 1
+
+print measure_udacity([])
+#>>> 0
+
+######Test Cases:
+#SUCCESS: Test case input: ['Dave','Sebastian','Umbrella']
+#SUCCESS: Test case input: ['Umika', 'Umberto']
+#SUCCESS: Test case input: ['Udalice', 'Udanne', 'Udaaron']
+
+
+
+#################################################################
+#       Lists: Find Elements in List Matching Passed Value  #
+#################################################################
+####While Loop Version
+def find_element(p,t):
+	i=0
+	while i<len(p):
+		if p[i] == t:
+			return i
+		i=i+1
+	return -1
+
+
+###For Loop Version
+def find_element(p,t):
+	i=0
+	for e in p:
+		if e==t:
+ 			return i
+		i= i +1
+	return -1
+
+###In-built function Version
+<list>.index(<value>)
+
+##<value> in <list> 
+#if value present in list, output is True; otherwise, False
+
+##<value> not in <list> 
+#equivalent to 
+#not <value> in <list>
+
+
+
+#################################################################
+#       Lists: Find Elements Using Index Method  #
+#################################################################
+# Define a procedure, find_element,
+# using index that takes as its
+# inputs a list and a value of any
+# type, and returns the index of
+# the first element in the input
+# list that matches the value.
+
+# If there is no matching element,
+# return -1.
+
+def find_element(ss, val):
+    if (val in ss):
+        return ss.index(val)
+    else:
+        return -1
+    
+print find_element([1,2,3],3)
+#>>> 2
+
+print find_element(['alpha','beta'],'gamma')
+#>>> -1
+
+print find_element([],0)
+#>>> -1
+
+print find_element([],[])
+#>>> -1
+
+
+
+#Union
+def union(p,q):					
+for e in q:
+	if e not in p:
+		p.append(e)
+
+
+
+#Pop Method
+(list>.pop()
+
+
+###Get Links
+
+links = get_all_links(get_page(‘http://www.udacity.com')
+print links[0]
+
+
+
+###############
+#Crawler
+
+
+#Finish crawl web
+
+def get_page(url):
+    # This is a simulated get_page procedure so that you can test your
+    # code on two pages "http://xkcd.com/353" and "http://xkcd.com/554".
+    # A procedure which actually grabs a page from the web will be 
+    # introduced in unit 4.
+    try:
+        if url == "http://xkcd.com/353":
+            return  '<?xml version="1.0" encoding="utf-8" ?><?xml-stylesheet href="http://imgs.xkcd.com/s/c40a9f8.css" type="text/css" media="screen" ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml"> <head> <title>xkcd: Python</title> <link rel="stylesheet" type="text/css" href="http://imgs.xkcd.com/s/c40a9f8.css" media="screen" title="Default" /> <!--[if IE]><link rel="stylesheet" type="text/css" href="http://imgs.xkcd.com/s/ecbbecc.css" media="screen" title="Default" /><![endif]--> <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/atom.xml" /> <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/rss.xml" /> <link rel="icon" href="http://imgs.xkcd.com/s/919f273.ico" type="image/x-icon" /> <link rel="shortcut icon" href="http://imgs.xkcd.com/s/919f273.ico" type="image/x-icon" /> </head> <body> <div id="container"> <div id="topContainer"> <div id="topLeft" class="dialog"> <div class="hd"><div class="c"></div></div> <div class="bd"> <div class="c"> <div class="s">\t<ul> <li><a href="http://xkcd.com/554"">Archive</a><br /></li>\t <li><a href="http://blag.xkcd.com/">News/Blag</a><br /></li> <li><a href="http://store.xkcd.com/">Store</a><br /></li> <li><a href="/about/">About</a><br /></li> <li><a href="http://forums.xkcd.com/">Forums</a><br /></li> </ul> </div> </div> </div> <div class="ft"><div class="c"></div></div> </div> <div id="topRight" class="dialog"> <div class="hd"><div class="c"></div></div> <div class="bd"> <div class="c"> <div class="s"> <div id="topRightContainer"> <div id="logo"> <a href="/"><img src="http://imgs.xkcd.com/s/9be30a7.png" alt="xkcd.com logo" height="83" width="185"/></a> <h2><br />A webcomic of romance,<br/> sarcasm, math, and language.</h2> <div class="clearleft"></div> <br />XKCD updates every Monday, Wednesday, and Friday. </div> </div> </div> </div> </div> <div class="ft"><div class="c"></div></div> </div> </div> <div id="contentContainer"> <div id="middleContent" class="dialog"> <div class="hd"><div class="c"></div></div> <div class="bd"> <div class="c"> <div class="s"><h1>Python</h1><br/><br /><div class="menuCont"> <ul> <li><a href="/1/">|&lt;</a></li> <li><a href="/352/" accesskey="p">&lt; Prev</a></li> <li><a href="http://dynamic.xkcd.com/random/comic/" id="rnd_btn_t">Random</a></li> <li><a href="/354/" accesskey="n">Next &gt;</a></li> <li><a href="/">&gt;|</a></li> </ul></div><br/><br/><img src="http://imgs.xkcd.com/comics/python.png" title="I wrote 20 short programs in Python yesterday. It was wonderful. Perl, Im leaving you." alt="Python" /><br/><br/><div class="menuCont"> <ul> <li><a href="/1/">|&lt;</a></li> <li><a href="/352/" accesskey="p">&lt; Prev</a></li> <li><a href="http://dynamic.xkcd.com/random/comic/" id="rnd_btn_b">Random</a></li> <li><a href="/354/" accesskey="n">Next &gt;</a></li> <li><a href="/">&gt;|</a></li> </ul></div><h3>Permanent link to this comic: http://xkcd.com/353/</h3><h3>Image URL (for hotlinking/embedding): http://imgs.xkcd.com/comics/python.png</h3><div id="transcript" style="display: none">[[ Guy 1 is talking to Guy 2, who is floating in the sky ]]Guy 1: You39;re flying! How?Guy 2: Python!Guy 2: I learned it last night! Everything is so simple!Guy 2: Hello world is just 39;print &quot;Hello, World!&quot; 39;Guy 1: I dunno... Dynamic typing? Whitespace?Guy 2: Come join us! Programming is fun again! It39;s a whole new world up here!Guy 1: But how are you flying?Guy 2: I just typed 39;import antigravity39;Guy 1: That39;s it?Guy 2: ...I also sampled everything in the medicine cabinet for comparison.Guy 2: But i think this is the python.{{ I wrote 20 short programs in Python yesterday. It was wonderful. Perl, I39;m leaving you. }}</div> </div> </div> </div> <div class="ft"><div class="c"></div></div> </div> <div id="middleFooter" class="dialog"> <div class="hd"><div class="c"></div></div> <div class="bd"> <div class="c"> <div class="s"> <img src="http://imgs.xkcd.com/s/a899e84.jpg" width="520" height="100" alt="Selected Comics" usemap=" comicmap" /> <map name="comicmap"> <area shape="rect" coords="0,0,100,100" href="/150/" alt="Grownups" /> <area shape="rect" coords="104,0,204,100" href="/730/" alt="Circuit Diagram" /> <area shape="rect" coords="208,0,308,100" href="/162/" alt="Angular Momentum" /> <area shape="rect" coords="312,0,412,100" href="/688/" alt="Self-Description" /> <area shape="rect" coords="416,0,520,100" href="/556/" alt="Alternative Energy Revolution" /> </map><br/><br />Search comic titles and transcripts:<br /><script type="text/javascript" src="//www.google.com/jsapi"></script><script type="text/javascript"> google.load(\"search\", \"1\"); google.setOnLoadCallback(function() { google.search.CustomSearchControl.attachAutoCompletion( \"012652707207066138651:zudjtuwe28q\", document.getElementById(\"q\"), \"cse-search-box\"); });</script><form action="//www.google.com/cse" id="cse-search-box"> <div> <input type="hidden" name="cx" value="012652707207066138651:zudjtuwe28q" /> <input type="hidden" name="ie" value="UTF-8" /> <input type="text" name="q" id="q" autocomplete="off" size="31" /> <input type="submit" name="sa" value="Search" /> </div></form><script type="text/javascript" src="//www.google.com/cse/brand?form=cse-search-box&lang=en"></script><a href="/rss.xml">RSS Feed</a> - <a href="/atom.xml">Atom Feed</a><br /> <br/> <div id="comicLinks"> Comics I enjoy:<br/> <a href="http://www.qwantz.com">Dinosaur Comics</a>, <a href="http://www.asofterworld.com">A Softer World</a>, <a href="http://pbfcomics.com/">Perry Bible Fellowship</a>, <a href="http://www.boltcity.com/copper/">Copper</a>, <a href="http://questionablecontent.net/">Questionable Content</a>, <a href="http://achewood.com/">Achewood</a>, <a href="http://wondermark.com/">Wondermark</a>, <a href="http://thisisindexed.com/">Indexed</a>, <a href="http://www.buttercupfestival.com/buttercupfestival.htm">Buttercup Festival</a> </div> <br/> Warning: this comic occasionally contains strong language (which may be unsuitable for children), unusual humor (which may be unsuitable for adults), and advanced mathematics (which may be unsuitable for liberal-arts majors).<br/> <br/> <h4>We did not invent the algorithm. The algorithm consistently finds Jesus. The algorithm killed Jeeves. <br />The algorithm is banned in China. The algorithm is from Jersey. The algorithm constantly finds Jesus.<br />This is not the algorithm. This is close.</h4><br/> <div class="line"></div> <br/> <div id="licenseText"> <!-- <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/"><img alt="Creative Commons License" style="border:none" src="http://imgs.xkcd.com/static/somerights20.png" /></a><br/> --> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">Creative Commons Attribution-NonCommercial 2.5 License</a>.<!-- <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns "><Work rdf:about=""><dc:creator>Randall Munroe</dc:creator><dcterms:rightsHolder>Randall Munroe</dcterms:rightsHolder><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:source rdf:resource="http://www.xkcd.com/"/><license rdf:resource="http://creativecommons.org/licenses/by-nc/2.5/" /></Work><License rdf:about="http://creativecommons.org/licenses/by-nc/2.5/"><permits rdf:resource="http://web.resource.org/cc/Reproduction" /><permits rdf:resource="http://web.resource.org/cc/Distribution" /><requires rdf:resource="http://web.resource.org/cc/Notice" /><requires rdf:resource="http://web.resource.org/cc/Attribution" /><prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" /><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" /></License></rdf:RDF> --> <br/> This means you\"re free to copy and share these comics (but not to sell them). <a href="/license.html">More details</a>.<br/> </div> </div> </div> </div> <div class="ft"><div class="c"></div></div> </div> </div> </div> </body></html> '
+        elif url == "http://xkcd.com/554":
+            return  '<?xml version="1.0" encoding="utf-8" ?> <?xml-stylesheet href="http://imgs.xkcd.com/s/c40a9f8.css" type="text/css" media="screen" ?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <title>xkcd: Not Enough Work</title> <link rel="stylesheet" type="text/css" href="http://imgs.xkcd.com/s/c40a9f8.css" media="screen" title="Default" /> <!--[if IE]><link rel="stylesheet" type="text/css" href="http://imgs.xkcd.com/s/ecbbecc.css" media="screen" title="Default" /><![endif]--> <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/atom.xml" /> <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/rss.xml" /> <link rel="icon" href="http://imgs.xkcd.com/s/919f273.ico" type="image/x-icon" /> <link rel="shortcut icon" href="http://imgs.xkcd.com/s/919f273.ico" type="image/x-icon" /> </head> <body> <div id="container"> <div id="topContainer"> <div id="topLeft" class="dialog"> <div class="hd"><div class="c"></div></div> <div class="bd"> <div class="c"> <div class="s"> <ul> <li><a href="/archive/">Archive</a><br /></li> <li><a href="http://blag.xkcd.com/">News/Blag</a><br /></li> <li><a href="http://store.xkcd.com/">Store</a><br /></li> <li><a href="/about/">About</a><br /></li> <li><a href="http://forums.xkcd.com/">Forums</a><br /></li> </ul> </div> </div> </div> <div class="ft"><div class="c"></div></div> </div> <div id="topRight" class="dialog"> <div class="hd"><div class="c"></div></div> <div class="bd"> <div class="c"> <div class="s"> <div id="topRightContainer"> <div id="logo"> <a href="/"><img src="http://imgs.xkcd.com/s/9be30a7.png" alt="xkcd.com logo" height="83" width="185"/></a> <h2><br />A webcomic of romance,<br/> sarcasm, math, and language.</h2> <div class="clearleft"></div> XKCD updates every Monday, Wednesday, and Friday. <br /> Blag: Remember geohashing? <a href="http://blog.xkcd.com/2012/02/27/geohashing-2/">Something pretty cool</a> happened Sunday. </div> </div> </div> </div> </div> <div class="ft"><div class="c"></div></div> </div> </div> <div id="contentContainer"> <div id="middleContent" class="dialog"> <div class="hd"><div class="c"></div></div> <div class="bd"> <div class="c"> <div class="s"> <h1>Not Enough Work</h1><br/> <br /> <div class="menuCont"> <ul> <li><a href="/1/">|&lt;</a></li> <li><a href="/553/" accesskey="p">&lt; Prev</a></li> <li><a href="http://dynamic.xkcd.com/random/comic/" id="rnd_btn_t">Random</a></li> <li><a href="/555/" accesskey="n">Next &gt;</a></li> <li><a href="/">&gt;|</a></li> </ul> </div> <br/> <br/> <img src="http://imgs.xkcd.com/comics/not_enough_work.png" title="It39;s even harder if you39;re an asshole who pronounces &lt;&gt; brackets." alt="Not Enough Work" /><br/> <br/> <div class="menuCont"> <ul> <li><a href="/1/">|&lt;</a></li> <li><a href="/553/" accesskey="p">&lt; Prev</a></li> <li><a href="http://dynamic.xkcd.com/random/comic/" id="rnd_btn_b">Random</a></li> <li><a href="/555/" accesskey="n">Next &gt;</a></li> <li><a href="/">&gt;|</a></li> </ul> </div> <h3>Permanent link to this comic: http://xkcd.com/554/</h3> <h3>Image URL (for hotlinking/embedding): http://imgs.xkcd.com/comics/not_enough_work.png</h3> <div id="transcript" style="display: none">Narration: Signs your coders don39;t have enough work to do: [[A man sitting at his workstation; a female co-worker behind him]] Man: I39;m almost up to my old typing speed in dvorak [[Two men standing by a server rack]] Man  1: Our servers now support gopher. Man  1: Just in case. [[A woman standing near her workstation speaking to a male co-worker]] Woman: Our pages are now HTML, XHTML-STRICT, and haiku-compliant Man: Haiku? Woman: &lt;div class=&quot;main&quot;&gt; Woman: &lt;span id=&quot;marquee&quot;&gt; Woman: Blog!&lt; span&gt;&lt; div&gt; [[A woman sitting at her workstation]] Woman: Hey! Have you guys seen this webcomic? {{title text: It39;s even harder if you39;re an asshole who pronounces &lt;&gt; brackets.}}</div> </div> </div> </div> <div class="ft"><div class="c"></div></div> </div> <div id="middleFooter" class="dialog"> <div class="hd"><div class="c"></div></div> <div class="bd"> <div class="c"> <div class="s"> <img src="http://imgs.xkcd.com/s/a899e84.jpg" width="520" height="100" alt="Selected Comics" usemap=" comicmap" /> <map name="comicmap"> <area shape="rect" coords="0,0,100,100" href="/150/" alt="Grownups" /> <area shape="rect" coords="104,0,204,100" href="/730/" alt="Circuit Diagram" /> <area shape="rect" coords="208,0,308,100" href="/162/" alt="Angular Momentum" /> <area shape="rect" coords="312,0,412,100" href="/688/" alt="Self-Description" /> <area shape="rect" coords="416,0,520,100" href="/556/" alt="Alternative Energy Revolution" /> </map><br/><br /> Search comic titles and transcripts:<br /> <script type="text/javascript" src="//www.google.com/jsapi"></script> <script type="text/javascript"> google.load("search", "1"); google.search.CustomSearchControl.attachAutoCompletion( "012652707207066138651:zudjtuwe28q", document.getElementById("q"), "cse-search-box"); }); </script> <form action="//www.google.com/cse" id="cse-search-box"> <div> <input type="hidden" name="cx" value="012652707207066138651:zudjtuwe28q" /> <input type="hidden" name="ie" value="UTF-8" /> <input type="text" name="q" id="q" autocomplete="off" size="31" /> <input type="submit" name="sa" value="Search" /> </div> </form> <script type="text/javascript" src="//www.google.com/cse/brand?form=cse-search-box&lang=en"></script> <a href="/rss.xml">RSS Feed</a> - <a href="/atom.xml">Atom Feed</a> <br /> <br/> <div id="comicLinks"> Comics I enjoy:<br/> <a href="http://threewordphrase.com/">Three Word Phrase</a>, <a href="http://oglaf.com/">Oglaf</a> (nsfw), <a href="http://www.smbc-comics.com/">SMBC</a>, <a href="http://www.qwantz.com">Dinosaur Comics</a>, <a href="http://www.asofterworld.com">A Softer World</a>, <a href="http://buttersafe.com/">Buttersafe</a>, <a href="http://pbfcomics.com/">Perry Bible Fellowship</a>, <a href="http://questionablecontent.net/">Questionable Content</a>, <a href="http://www.buttercupfestival.com/buttercupfestival.htm">Buttercup Festival</a> </div> <br/> Warning: this comic occasionally contains strong language (which may be unsuitable for children), unusual humor (which may be unsuitable for adults), and advanced mathematics (which may be unsuitable for liberal-arts majors).<br/> <br/> <h4>We did not invent the algorithm. The algorithm consistently finds Jesus. The algorithm killed Jeeves. <br />The algorithm is banned in China. The algorithm is from Jersey. The algorithm constantly finds Jesus.<br />This is not the algorithm. This is close.</h4><br/> <div class="line"></div> <br/> <div id="licenseText"> <!-- <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/"><img alt="Creative Commons License" style="border:none" src="http://imgs.xkcd.com/static/somerights20.png" /></a><br/> --> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">Creative Commons Attribution-NonCommercial 2.5 License</a>. <!-- <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns "><Work rdf:about=""><dc:creator>Randall Munroe</dc:creator><dcterms:rightsHolder>Randall Munroe</dcterms:rightsHolder><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:source rdf:resource="http://www.xkcd.com/"/><license rdf:resource="http://creativecommons.org/licenses/by-nc/2.5/" /></Work><License rdf:about="http://creativecommons.org/licenses/by-nc/2.5/"><permits rdf:resource="http://web.resource.org/cc/Reproduction" /><permits rdf:resource="http://web.resource.org/cc/Distribution" /><requires rdf:resource="http://web.resource.org/cc/Notice" /><requires rdf:resource="http://web.resource.org/cc/Attribution" /><prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" /><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" /></License></rdf:RDF> --> <br/> This means you"re free to copy and share these comics (but not to sell them). <a href="/license.html">More details</a>.<br/> </div> </div> </div> </div> <div class="ft"><div class="c"></div></div> </div> </div> </div> </body> </html> '
+    except:
+        return ""
+    return ""
+
+def get_next_target(page):
+    start_link = page.find('<a href=')
+    if start_link == -1: 
+        return None, 0
+    start_quote = page.find('"', start_link)
+    end_quote = page.find('"', start_quote + 1)
+    url = page[start_quote + 1:end_quote]
+    return url, end_quote
+
+def union(p,q):
+    for e in q:
+        if e not in p:
+            p.append(e)
+
+
+def get_all_links(page):
+    links = []
+    while True:
+        url,endpos = get_next_target(page)
+        if url:
+            links.append(url)
+            page = page[endpos:]
+        else:
+            break
+    return links
+
+def crawl_web(seed):
+    tocrawl = [seed]
+    crawled = []
+    while tocrawl:
+        page = tocrawl.pop()
+        if page not in crawled:
+            union(tocrawl, get_all_links(get_page(page)))
+            crawled.append(page)
+            
+    return crawled
+
+
+
+
+#################################################################
+#       Lists: Product of Elements  #
+#################################################################
+# Define a procedure, product_list,
+# that takes as input a list of numbers,
+# and returns a number that is
+# the result of multiplying all
+# those numbers together.
+
+def product_list(list_of_numbers):
+    product = 1
+    for e in list_of_numbers:
+        product = product * e
+    return product
+
+
+print product_list([9])
+#>>> 9
+
+print product_list([1,2,3,4])
+#>>> 24
+
+print product_list([])
+#>>> 1
+
+#################################################################
+#       Lists: Product of Elements  #
+#################################################################
+# Define a procedure, greatest,
+# that takes as input a list
+# of positive numbers, and
+# returns the greatest number
+# in that list. If the input
+# list is empty, the output
+# should be 0.
+
+def greatest(list_of_numbers):
+    greatestNum = 0
+    for e in list_of_numbers:
+        if e > greatestNum:
+            greatestNum = e
+    return greatestNum
+
+
+
+print greatest([4,23,1])
+#>>> 23
+print greatest([])
+#>>> 0
+
+
+#################################################################
+#       Lists: University Problem  #
+#################################################################
+# Define a procedure, total_enrollment,
+# that takes as an input a list of elements,
+# where each element is a list containing
+# three elements: a university name,
+# the total number of students enrolled,
+# and the annual tuition fees.
+
+# The procedure should return two numbers,
+# not a string, 
+# giving the total number of students
+# enrolled at all of the universities
+# in the list, and the total tuition fees
+# (which is the sum of the number
+# of students enrolled times the
+# tuition fees for each university).
+
+udacious_univs = [['Udacity',90000,0]]
+
+usa_univs = [ ['California Institute of Technology',2175,37704],
+              ['Harvard',19627,39849],
+              ['Massachusetts Institute of Technology',10566,40732],
+              ['Princeton',7802,37000],
+              ['Rice',5879,35551],
+              ['Stanford',19535,40569],
+              ['Yale',11701,40500]  ]
+
+def total_enrollment(p):
+    total_students = 0
+    total_tuition = 0
+    for name, students, price in p:
+        total_students = total_students + students
+        total_tuition = total_tuition + students* price
+    return total_students,total_tuition
+
+
+print total_enrollment(udacious_univs)
+#>>> (90000,0)
+
+# The L is automatically added by Python to indicate a long
+# number. If you are trying the question in an outside 
+# interpreter you might not see it.
+
+print total_enrollment(usa_univs)
+#>>> (77285,3058581079)
+    
+
+
+#################################################################
+#       Web Crawler: Max Limit on Pages  #
+#################################################################
+# The web crawler we built at the end of Unit 3 has some serious
+# flaws if we were going to use it in a real crawler. One
+# problem is if we start with a good seed page, it might
+# run for an extremely long time (even forever, since the
+# number of URLS on the web is not actually finite). This
+# question and the following one explore two different ways
+# to limit the pages that it can crawl.
+
+# Modify the crawl_web procedure to take a second parameter,
+# max_pages, that limits the number of pages to crawl.
+# Your procedure should terminate the crawl after
+# max_pages different pages have been crawled, or when
+# there are no more pages to crawl.
+
+# The following definition of get_page provides an interface
+# to the website found at http://www.udacity.com/cs101x/index.html
+
+# The function output order does not affect grading.
+
+def get_page(url):
+    try:
+        if url == "http://www.udacity.com/cs101x/index.html":
+            return ('<html> <body> This is a test page for learning to crawl! '
+            '<p> It is a good idea to '
+            '<a href="http://www.udacity.com/cs101x/crawling.html">learn to '
+            'crawl</a> before you try to  '
+            '<a href="http://www.udacity.com/cs101x/walking.html">walk</a> '
+            'or  <a href="http://www.udacity.com/cs101x/flying.html">fly</a>. '
+            '</p> </body> </html> ')
+        elif url == "http://www.udacity.com/cs101x/crawling.html":
+            return ('<html> <body> I have not learned to crawl yet, but I '
+            'am quite good at '
+            '<a href="http://www.udacity.com/cs101x/kicking.html">kicking</a>.'
+            '</body> </html>')
+        elif url == "http://www.udacity.com/cs101x/walking.html":
+            return ('<html> <body> I cant get enough '
+            '<a href="http://www.udacity.com/cs101x/index.html">crawling</a>! '
+            '</body> </html>')
+        elif url == "http://www.udacity.com/cs101x/flying.html":
+            return ('<html> <body> The magic words are Squeamish Ossifrage! '
+            '</body> </html>')
+    except:
+        return ""
+    return ""
+
+def get_next_target(page):
+    start_link = page.find('<a href=')
+    if start_link == -1: 
+        return None, 0
+    start_quote = page.find('"', start_link)
+    end_quote = page.find('"', start_quote + 1)
+    url = page[start_quote + 1:end_quote]
+    return url, end_quote
+
+def union(p,q):
+    for e in q:
+        if e not in p:
+            p.append(e)
+
+def get_all_links(page):
+    links = []
+    while True:
+        url,endpos = get_next_target(page)
+        if url:
+            links.append(url)
+            page = page[endpos:]
+        else:
+            break
+    return links
+
+def crawl_web(seed, max_pages):
+    tocrawl = [seed]
+    crawled = []
+    while tocrawl and (len(crawled) < max_pages):
+        page = tocrawl.pop()
+        if page not in crawled:
+            union(tocrawl, get_all_links(get_page(page)))
+            crawled.append(page)
+    return crawled
+
+print crawl_web("http://www.udacity.com/cs101x/index.html",1) 
+#>>> ['http://www.udacity.com/cs101x/index.html']
+
+print crawl_web("http://www.udacity.com/cs101x/index.html",3) 
+#>>> ['http://www.udacity.com/cs101x/index.html', 
+#>>> 'http://www.udacity.com/cs101x/flying.html', 
+#>>> 'http://www.udacity.com/cs101x/walking.html']
+
+print crawl_web("http://www.udacity.com/cs101x/index.html",500) 
+#>>> ['http://www.udacity.com/cs101x/index.html', 
+#>>> 'http://www.udacity.com/cs101x/flying.html', 
+#>>> 'http://www.udacity.com/cs101x/walking.html', 
+#>>> 'http://www.udacity.com/cs101x/crawling.html', 
+#>>> 'http://www.udacity.com/cs101x/kicking.html']
+
+
+#################################################################
+#       Web Crawler: Max Depth (page) #
+################################################################# 
+# This question explores a different way (from the previous question)
+# to limit the pages that it can crawl.
+#
+#######
+
+# THREE GOLD STARS #
+# Yes, we really mean it!  This is really tough (but doable) unless 
+# you have some previous experience before this course.
+
+
+# Modify the crawl_web procedure to take a second parameter,
+# max_depth, that limits the depth of the search.  We can 
+# define the depth of a page as the number of links that must
+# be followed to reach that page starting from the seed page,
+# that is, the length of the shortest path from the seed to
+# the page.  No pages whose depth exceeds max_depth should be
+# included in the crawl.  
+# 
+# For example, if max_depth is 0, the only page that should
+# be crawled is the seed page. If max_depth is 1, the pages
+# that should be crawled are the seed page and every page that 
+# it links to directly. If max_depth is 2, the crawl should 
+# also include all pages that are linked to by these pages.
+#
+# Note that the pages in the crawl may be in any order.
+#
+# The following definition of get_page provides an interface
+# to the website found at http://www.udacity.com/cs101x/index.html
+
+# The function output order does not affect grading.
+
+def get_page(url):
+    try:
+        if url == "http://www.udacity.com/cs101x/index.html":
+            return ('<html> <body> This is a test page for learning to crawl! '
+            '<p> It is a good idea to '
+            '<a href="http://www.udacity.com/cs101x/crawling.html">learn to '
+            'crawl</a> before you try to  '
+            '<a href="http://www.udacity.com/cs101x/walking.html">walk</a> '
+            'or  <a href="http://www.udacity.com/cs101x/flying.html">fly</a>. '
+            '</p> </body> </html> ')
+        elif url == "http://www.udacity.com/cs101x/crawling.html":
+            return ('<html> <body> I have not learned to crawl yet, but I '
+            'am quite good at '
+            '<a href="http://www.udacity.com/cs101x/kicking.html">kicking</a>.'
+            '</body> </html>')
+        elif url == "http://www.udacity.com/cs101x/walking.html":
+            return ('<html> <body> I cant get enough '
+            '<a href="http://www.udacity.com/cs101x/index.html">crawling</a>! '
+            '</body> </html>')
+        elif url == "http://www.udacity.com/cs101x/flying.html":
+            return ('<html> <body> The magic words are Squeamish Ossifrage! '
+            '</body> </html>')
+        elif url == "http://top.contributors/velak.html":
+            return ('<a href="http://top.contributors/jesyspa.html">'
+        '<a href="http://top.contributors/forbiddenvoid.html">')
+        elif url == "http://top.contributors/jesyspa.html":
+            return  ('<a href="http://top.contributors/elssar.html">'
+        '<a href="http://top.contributors/kilaws.html">')
+        elif url == "http://top.contributors/forbiddenvoid.html":
+            return ('<a href="http://top.contributors/charlzz.html">'
+        '<a href="http://top.contributors/johang.html">'
+        '<a href="http://top.contributors/graemeblake.html">')
+        elif url == "http://top.contributors/kilaws.html":
+            return ('<a href="http://top.contributors/tomvandenbosch.html">'
+        '<a href="http://top.contributors/mathprof.html">')
+        elif url == "http://top.contributors/graemeblake.html":
+            return ('<a href="http://top.contributors/dreyescat.html">'
+        '<a href="http://top.contributors/angel.html">')
+        elif url == "A1":
+            return  '<a href="B1"> <a href="C1">  '
+        elif url == "B1":
+            return  '<a href="E1">'
+        elif url == "C1":
+            return '<a href="D1">'
+        elif url == "D1":
+            return '<a href="E1"> '
+        elif url == "E1":
+            return '<a href="F1"> '
+    except:
+        return ""
+    return ""
+
+def get_next_target(page):
+    start_link = page.find('<a href=')
+    if start_link == -1:
+        return None, 0
+    start_quote = page.find('"', start_link)
+    end_quote = page.find('"', start_quote + 1)
+    url = page[start_quote + 1:end_quote]
+    return url, end_quote
+
+def union(p,q):
+    for e in q:
+        if e not in p:
+            p.append(e)
+
+def get_all_links(page):
+    links = []
+    while True:
+        url,endpos = get_next_target(page)
+        if url:
+            links.append(url)
+            page = page[endpos:]
+        else:
+            break
+    return links
+
+def crawl_web(seed,max_depth):
+    tocrawl = [seed]
+    crawled = []
+    next_depth = []
+    depth=0
+    while tocrawl and (depth <= max_depth):
+        page = tocrawl.pop()
+        if page not in crawled:
+            union(next_depth, get_all_links(get_page(page)))
+            crawled.append(page)
+        if not tocrawl:
+            tocrawl, next_depth = next_depth, []
+            depth= depth+1
+    return crawled
+
+print crawl_web("http://www.udacity.com/cs101x/index.html",0)
+#>>> ['http://www.udacity.com/cs101x/index.html']
+
+print crawl_web("http://www.udacity.com/cs101x/index.html",1)
+#>>> ['http://www.udacity.com/cs101x/index.html',
+#>>> 'http://www.udacity.com/cs101x/flying.html',
+#>>> 'http://www.udacity.com/cs101x/walking.html',
+#>>> 'http://www.udacity.com/cs101x/crawling.html']
+
+print crawl_web("http://www.udacity.com/cs101x/index.html",50)
+#>>> ['http://www.udacity.com/cs101x/index.html',
+#>>> 'http://www.udacity.com/cs101x/flying.html',
+#>>> 'http://www.udacity.com/cs101x/walking.html',
+#>>> 'http://www.udacity.com/cs101x/crawling.html',
+#>>> 'http://www.udacity.com/cs101x/kicking.html']
+
+print crawl_web("http://top.contributors/forbiddenvoid.html",2)
+#>>> ['http://top.contributors/forbiddenvoid.html',
+#>>> 'http://top.contributors/graemeblake.html',
+#>>> 'http://top.contributors/angel.html',
+#>>> 'http://top.contributors/dreyescat.html',
+#>>> 'http://top.contributors/johang.html',
+#>>> 'http://top.contributors/charlzz.html']
+
+print crawl_web("A1",3)
+#>>> ['A1', 'C1', 'B1', 'E1', 'D1', 'F1']
+# (May be in any order)
+
+
+
+
+#################################################################
+#       Sudoku #  Not working!! :(
+################################################################# 
+# THREE GOLD STARS
+
+# Sudoku [http://en.wikipedia.org/wiki/Sudoku]
+# is a logic puzzle where a game
+# is defined by a partially filled
+# 9 x 9 square of digits where each square
+# contains one of the digits 1,2,3,4,5,6,7,8,9.
+# For this question we will generalize
+# and simplify the game.
+
+# Define a procedure, check_sudoku,
+# that takes as input a square list
+# of lists representing an n x n
+# sudoku puzzle solution and returns the boolean
+# True if the input is a valid
+# sudoku square and returns the boolean False
+# otherwise.
+
+# A valid sudoku square satisfies these
+# two properties:
+
+#   1. Each column of the square contains
+#       each of the whole numbers from 1 to n exactly once.
+
+#   2. Each row of the square contains each
+#       of the whole numbers from 1 to n exactly once.
+
+# You may assume the the input is square and contains at
+# least one row and column.
+
+correct = [[1,2,3],
+           [2,3,1],
+           [3,1,2]]
+
+incorrect = [[1,2,3,4],
+             [2,3,1,3],
+             [3,1,2,3],
+             [4,4,4,4]]
+
+incorrect2 = [[1,2,3,4],
+             [2,3,1,4],
+             [4,1,2,3],
+             [3,4,1,2]]
+
+incorrect3 = [[1,2,3,4,5],
+              [2,3,1,5,6],
+              [4,5,2,1,3],
+              [3,4,5,2,1],
+              [5,6,4,3,2]]
+
+incorrect4 = [['a','b','c'],
+              ['b','c','a'],
+              ['c','a','b']]
+
+incorrect5 = [ [1, 1.5],
+               [1.5, 1]]
+               
+def check_sudoku(puzzle):
+    n = len(p) #Extract grid size
+	digit = 1 #start with 1
+	while digit <= n : # Go through each digit
+		i=0
+		while i < n:
+			row_count=0
+			col_count =0
+			j=0
+			while j<n: #Repeat for each entry
+				if p[i][j] == digit: #check row count
+					row_count = row_count + 1
+				if p[j][i] == digit: #check col count
+					col_count = col_count + 1
+				j=j+1
+			if row_count !=1 or col_count != 1:
+				return False
+			i = i +1
+		digit = digit +1 
+	return True
+
+
+    
+print check_sudoku(incorrect)
+#>>> False
+
+#print check_sudoku(correct)
+#>>> True
+
+#print check_sudoku(incorrect2)
+#>>> False
+
+#print check_sudoku(incorrect3)
+#>>> False
+
+#print check_sudoku(incorrect4)
+#>>> False
+
+#print check_sudoku(incorrect5)
+#>>> False
+
+
+
+
+#################################################################
+#       Web Crawler: Add to Index				#
+################################################################# 
+# Define a procedure, add_to_index,
+# that takes 3 inputs:
+
+# - an index: [[<keyword>,[<url>,...]],...]
+# - a keyword: String
+# - a url: String
+
+# If the keyword is already
+# in the index, add the url
+# to the list of urls associated
+# with that keyword.
+
+# If the keyword is not in the index,
+# add an entry to the index: [keyword,[url]]
+
+index = []
+
+def add_to_index(index,keyword,url):
+    for e in index:
+        if e[0] == keyword:
+            e[1].append(url)
+            return index
+    k= [keyword, [url]]
+    index.append(k)
+    return index
+
+add_to_index(index,'udacity','http://udacity.com')
+add_to_index(index,'computing','http://acm.org')
+add_to_index(index,'udacity','http://npr.org')
+print index
+#>>> [['udacity', ['http://udacity.com', 'http://npr.org']], 
+#>>> ['computing', ['http://acm.org']]]
+
+
+
+#################################################################
+#       Web Crawler: Lookup					#
+#################################################################
+# Define a procedure, lookup,
+# that takes two inputs:
+
+# - an index
+# - keyword
+
+# The procedure should return a list
+# of the urls associated
+# with the keyword. If the keyword
+# is not in the index, the procedure
+# should return an empty list.
+
+index = [['udacity', ['http://udacity.com', 'http://npr.org']],
+         ['computing', ['http://acm.org']]]
+
+def lookup(index,keyword):
+    for e in index:
+         if e[0] == keyword:
+             return e[1]
+    return []
+
+print lookup(index,'udacity')
+#>>> ['http://udacity.com','http://npr.org']
+
+print lookup(index,'udacious')
+#>>> []
+
+print lookup(index,'computing')
+#>>> ['http://acm.org']
+
+
+#################################################################
+#       Web Crawler: Add Page to Index					#
+#################################################################
+# Define a procedure, add_page_to_index,
+# that takes three inputs:
+
+#   - index
+#   - url (String)
+#   - content (String)
+
+# It should update the index to include
+# all of the word occurences found in the
+# page content by adding the url to the
+# word's associated url list.
+
+index = []
+
+
+def add_to_index(index,keyword,url):
+    for entry in index:
+        if entry[0] == keyword:
+            entry[1].append(url)
+            return
+    index.append([keyword,[url]])
+
+def add_page_to_index(index,url,content):
+    new_content = content.split()
+    for word in new_content:
+       add_to_index(index,word,url)
+
+
+add_page_to_index(index,'fake.text',"This is a test")
+print index
+#>>> [['This', ['fake.text']], ['is', ['fake.text']], ['a', ['fake.text']],
+#>>> ['test',['fake.text']]]
+add_page_to_index(index,'fake2.text',"This is another test")
+print index
+#[['This', ['fake.text', 'fake2.text']], ['is', ['fake.text', 'fake2.text']], 
+#[‘a’, ['fake.text']], ['test', ['fake.text', 'fake2.text']], 
+#[‘another', ['fake2.text']]]
+
+
+######### Finishing web crawler ###################
+def crawl_web(seed):
+	tocrawl=[seed]
+	crawled = []
+	index = []
+	while tocrawl:
+		page = tocrawl.pop()
+		if page not in crawled:
+		add_page_to_index(index, page, content)
+		union(tocrawl, get_all_links(content))
+		crawled.append(page)
+	return index
+
+#######################################
+#Not working for third Input Set
+##################################################
+# Split Function
+#################################################
+# 1 Gold Star
+
+# The built-in <string>.split() procedure works
+# okay, but fails to find all the words on a page
+# because it only uses whitespace to split the
+# string. To do better, we should also use punctuation
+# marks to split the page into words.
+
+# Define a procedure, split_string, that takes two
+# inputs: the string to split and a string containing
+# all of the characters considered separators. The
+# procedure should return a list of strings that break
+# the source string up by the characters in the
+# splitlist.
+
+
+def split_string(source,splitlist):
+    s= []
+    #print source
+    for i in splitlist:
+        s.append(i)
+    s.append("")
+    
+    temp = ""
+    listString = []
+    for a in source:
+        if(a in s):
+            listString.append(temp)
+            temp = ""
+        else:
+            temp = temp + a
+    
+    temp2 = []  
+    
+    #print listString
+    
+    for k in listString:
+        if (k != ""):
+            temp2.append(k) 
+        
+    return temp2
+    
+#out = split_string("This is a test-of the,string separation-code!"," ,!-")
+#print out
+#>>> ['This', 'is', 'a', 'test', 'of', 'the', 'string', 'separation', 'code']
+
+#out = split_string("After  the flood   ...  all the colors came out.", " .")
+#print out
+#>>> ['After', 'the', 'flood', 'all', 'the', 'colors', 'came', 'out']
+
+#######Not working for this input
+out = split_string("First Name,Last Name,Street Address,City,State,Zip Code",",")
+print out
+#>>>['First Name', 'Last Name', 'Street Address', 'City', 'State', 'Zip Code']
+
+##Actual Answers
+#['This', 'is', 'a', 'test', 'of', 'the', 'string', 'separation', 'code']
+#[‘After', 'the', 'flood', 'all', 'the', 'colors', 'came', 'out']
+#[‘First Name', 'Last Name', 'Street Address', 'City', 'State']
+
+#Incorrect. Your procedure did not return the list 
+#[‘First Name', 'Last Name', 'Street Address', 'City', 'State', 'Zip Code']
+#when splitting 'First Name,Last Name,Street Address,City,State,Zip Code' 
+#using the list ','. 
+#Your submission passed 3 out of 7 test cases.
+
+##################################################
+# Split Function
+#################################################
+# 1 Gold Star
+
+# The built-in <string>.split() procedure works
+# okay, but fails to find all the words on a page
+# because it only uses whitespace to split the
+# string. To do better, we should also use punctuation
+# marks to split the page into words.
+
+# Define a procedure, split_string, that takes two
+# inputs: the string to split and a string containing
+# all of the characters considered separators. The
+# procedure should return a list of strings that break
+# the source string up by the characters in the
+# splitlist.
+
+
+def split_string(source, splitlist):
+	output = []
+	atsplit = True 
+	
+	for char in source: #iterate through string character by character
+		if char in splitlist:
+			atsplit = True
+		else:
+			if atsplit:
+				output.append(char)
+				atsplit = False
+			else:
+				output[-1] = output[-1] + char
+	return output
+
+    
+out = split_string("This is a test-of the,string separation-code!"," ,!-")
+print out
+#>>> ['This', 'is', 'a', 'test', 'of', 'the', 'string', 'separation', 'code']
+
+out = split_string("After  the flood   ...  all the colors came out.", " .")
+print out
+#>>> ['After', 'the', 'flood', 'all', 'the', 'colors', 'came', 'out']
+
+out = split_string("First Name,Last Name,Street Address,City,State,Zip Code",",")
+print out
+#>>>['First Name', 'Last Name', 'Street Address', 'City', 'State', 'Zip Code']
+
+
+
+##################################################
+# Improving Index
+#################################################
+# The current index includes a url in the list of urls
+# for a keyword multiple times if the keyword appears
+# on that page more than once.
+
+# It might be better to only include the same url
+# once in the url list for a keyword, even if it appears
+# many times.
+
+# Modify add_to_index so that a given url is only
+# included once in the url list for a keyword,
+# no matter how many times that keyword appears.
+
+def add_to_index(index, keyword, url):
+    for entry in index:
+        if entry[0] == keyword: #keyword exists in index
+#one line magic answer in ideal answer
+# use if loop instead of for loop with nested if
+#<actual code begins>
+#if not url in entry[1]:
+#	entry[1]. append(url)
+#return
+#<actual code ends> with jump to index.append section to add new keyword index pair
+            for s in entry[1]:
+                if s == url:    #url-keyword match already exists  
+                    return
+            entry[1].append(url) #code point reached= keyword exists without this url, hence, append
+            return
+    # not found, add new keyword to index
+    index.append([keyword, [url]])
+
+
+def get_page(url):
+    try:
+        if url == "http://www.udacity.com/cs101x/index.html":
+            return '''<html> <body> This is a test page for learning to crawl!
+<p> It is a good idea to
+<a href="http://www.udacity.com/cs101x/crawling.html">
+learn to crawl</a> before you try to
+<a href="http://www.udacity.com/cs101x/walking.html">walk</a> or
+<a href="http://www.udacity.com/cs101x/flying.html">fly</a>.</p></body>
+</html>'''
+
+        elif url == "http://www.udacity.com/cs101x/crawling.html":
+            return '''<html> <body> I have not learned to crawl yet, but I am
+quite good at  <a href="http://www.udacity.com/cs101x/kicking.html">kicking</a>.
+</body> </html>'''
+
+        elif url == "http://www.udacity.com/cs101x/walking.html":
+            return '''<html> <body> I cant get enough
+<a href="http://www.udacity.com/cs101x/index.html">crawling</a></body></html>'''
+
+        elif url == "http://www.udacity.com/cs101x/flying.html":
+            return '''<html>
+<body>The magic words are Squeamish Ossifrage!</body></html>'''
+    except:
+        return ""
+    return ""
+
+def union(a, b):
+    for e in b:
+        if e not in a:
+            a.append(e)
+
+def get_next_target(page):
+    start_link = page.find('<a href=')
+    if start_link == -1:
+        return None, 0
+    start_quote = page.find('"', start_link)
+    end_quote = page.find('"', start_quote + 1)
+    url = page[start_quote + 1:end_quote]
+    return url, end_quote
+
+def get_all_links(page):
+    links = []
+    while True:
+        url, endpos = get_next_target(page)
+        if url:
+            links.append(url)
+            page = page[endpos:]
+        else:
+            break
+    return links
+
+def crawl_web(seed):
+    tocrawl = [seed]
+    crawled = []
+    index = []
+    while tocrawl:
+        page = tocrawl.pop()
+        if page not in crawled:
+            content = get_page(page)
+            add_page_to_index(index, page, content)
+            union(tocrawl, get_all_links(content))
+            crawled.append(page)
+    return index
+
+def add_page_to_index(index, url, content):
+    words = content.split()
+    for word in words:
+        add_to_index(index, word, url)
+
+def lookup(index, keyword):
+    for entry in index:
+        if entry[0] == keyword:
+            return entry[1]
+    return None
+
+index = crawl_web("http://www.udacity.com/cs101x/index.html")
+print lookup(index,"is")
+#>>> ['http://www.udacity.com/cs101x/index.html']
+
+
+
+
+##################################################
+# Counting Clicks
+#################################################
+# 2 Gold Stars
+
+# One way search engines rank pages
+# is to count the number of times a
+# searcher clicks on a returned link.
+# This indicates that the person doing
+# the query thought this was a useful
+# link for the query, so it should be
+# higher in the rankings next time.
+
+# (In Unit 6, we will look at a different
+# way of ranking pages that does not depend
+# on user clicks.)
+
+# Modify the index such that for each url in a
+# list for a keyword, there is also a number
+# that counts the number of times a user
+# clicks on that link for this keyword.
+
+# The result of lookup(index,keyword) should
+# now be a list of url entries, where each url
+# entry is a list of a url and a number
+# indicating the number of times that url
+# was clicked for this query keyword.
+
+# You should define a new procedure to simulate
+# user clicks for a given link:
+
+# record_user_click(index,word,url)
+
+# that modifies the entry in the index for
+# the input word by increasing the count associated
+# with the url by 1.
+
+# You also will have to modify add_to_index
+# in order to correctly create the new data
+# structure, and to prevent the repetition of
+# entries as in homework 4-5.
+
+
+def record_user_click(index, keyword, url):
+    urls = lookup(index, keyword)
+    if urls:
+        for entry in urls:
+            if entry[0] == url:
+                entry[1] = entry[1]+1
+
+
+def add_to_index(index, keyword, url):
+    # format of index: [[keyword, [[url, count], [url, count],..]],...]
+    for entry in index:
+        if entry[0] == keyword:
+            for urls in entry[1]:
+                if urls[0] == url:
+                    return
+            entry[1].append([url,0])
+            return
+    # not found, add new keyword to index
+    index.append([keyword, [[url,0]]])
+
+
+def get_page(url):
+    try:
+        if url == "http://www.udacity.com/cs101x/index.html":
+            return '''<html> <body> This is a test page for learning to crawl!
+<p> It is a good idea to
+<a href="http://www.udacity.com/cs101x/crawling.html">
+learn to crawl</a> before you try to
+<a href="http://www.udacity.com/cs101x/walking.html">walk</a> or
+<a href="http://www.udacity.com/cs101x/flying.html">fly</a>.</p></body></html>'''
+
+        elif url == "http://www.udacity.com/cs101x/crawling.html":
+            return '''<html> <body> I have not learned to crawl yet, but I am
+quite good at  <a href="http://www.udacity.com/cs101x/kicking.html">kicking</a>.
+</body> </html>'''
+
+        elif url == "http://www.udacity.com/cs101x/walking.html":
+            return '''<html> <body> I cant get enough
+<a href="http://www.udacity.com/cs101x/index.html">crawling</a>!</body></html>'''
+
+        elif url == "http://www.udacity.com/cs101x/flying.html":
+            return '<html><body>The magic words are Squeamish Ossifrage!</body></html>'
+    except:
+        return ""
+    return ""
+
+def union(a, b):
+    for e in b:
+        if e not in a:
+            a.append(e)
+
+def get_next_target(page):
+    start_link = page.find('<a href=')
+    if start_link == -1:
+        return None, 0
+    start_quote = page.find('"', start_link)
+    end_quote = page.find('"', start_quote + 1)
+    url = page[start_quote + 1:end_quote]
+    return url, end_quote
+
+def get_all_links(page):
+    links = []
+    while True:
+        url, endpos = get_next_target(page)
+        if url:
+            links.append(url)
+            page = page[endpos:]
+        else:
+            break
+    return links
+
+def crawl_web(seed):
+    tocrawl = [seed]
+    crawled = []
+    index = []
+    while tocrawl:
+        page = tocrawl.pop()
+        if page not in crawled:
+            content = get_page(page)
+            add_page_to_index(index, page, content)
+            union(tocrawl, get_all_links(content))
+            crawled.append(page)
+    return index
+
+def add_page_to_index(index, url, content):
+    words = content.split()
+    for word in words:
+        add_to_index(index, word, url)
+
+def lookup(index, keyword):
+    for entry in index:
+        if entry[0] == keyword:
+            return entry[1]
+    return None
+
+
+#Here is an example showing a sequence of interactions:
+index = crawl_web('http://www.udacity.com/cs101x/index.html')
+print lookup(index, 'good')
+#>>> [['http://www.udacity.com/cs101x/index.html', 0],
+#>>> ['http://www.udacity.com/cs101x/crawling.html', 0]]
+record_user_click(index, 'good', 'http://www.udacity.com/cs101x/crawling.html')
+print lookup(index, 'good')
+#>>> [['http://www.udacity.com/cs101x/index.html', 0],
+#>>> ['http://www.udacity.com/cs101x/crawling.html', 1]]
+
+
